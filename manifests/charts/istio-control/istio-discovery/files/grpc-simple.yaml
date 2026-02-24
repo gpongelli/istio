@@ -63,3 +63,7 @@ spec:
   volumes:
     - name: grpc-io-proxyless-bootstrap
       emptyDir: {}
+  {{- if .Values.global.tolerations }}
+  tolerations:
+    {{- toYaml .Values.global.tolerations | nindent 4 }}
+  {{- end }}
